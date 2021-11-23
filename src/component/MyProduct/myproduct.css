@@ -1,0 +1,11 @@
+.myProduct-container {
+    padding-top: 5rem;
+    width: 100%;
+}
+
+.myProduct-centre {
+    width: 90%;
+    height: 100%;
+    margin: 0 auto;
+    background-color: white;
+}

@@ -1,0 +1,64 @@
+.modalcategories-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .3);
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modalcategories-centre {
+    width: 50%;
+    
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+.modalcategories-centre h4 {
+    color: #ee4d2d;
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+}
+.input-title-categories {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+}
+.input-categories {
+    display: block;
+    width: 100%;
+    background-color: #F5F5F5;
+    border: 1px solid #BABABA;
+    padding: 1rem 1.2rem;
+    font-size: 1.6rem;
+    font-family: "Roboto",sans-serif;
+    margin: 1.4rem 0
+}
+
+.btn-categories-container {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: flex-end;
+}
+.btn-categories {
+    padding: 1rem 1.5rem;
+    font-size: 1.6rem;
+    font-family: "Roboto",sans-serif;
+    width: 25%;
+    box-sizing: border-box;
+    border: 1px solid #ee4d2d;
+}
+
+.btn-categories-back {
+    background-color: transparent;
+    color: #ee4d2d;
+    margin-right: 2rem;
+}
+.btn-categories-submit {
+    background-color: #ee4d2d;
+    color: white;
+   
+}
