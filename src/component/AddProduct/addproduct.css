@@ -4,6 +4,8 @@ button{
 .addProduct-container {
     padding-top: 5rem;
     width: 100%;
+    padding-left: 20%;
+
 }
 
 .addProduct-centre {
@@ -64,11 +66,12 @@ button{
     padding-left: 4rem;
 }
 
-.addProduct-centre .promo-box {
+.addProduct-centre .btn-promo-box {
     display: block;
+    background-color: transparent;
     text-align: center;
     color: #ee4d2d;
-   
+   cursor: pointer;
     border: 3px dashed #ee4d2d;
     padding: 1rem 1.2rem;
     width: 100%;
@@ -109,4 +112,46 @@ button{
     cursor: pointer;
     margin-top: 1rem;
     color: #ee4d2d;
+}
+.promo-box-container {
+    border: 3px dashed #ee4d2d;
+    padding: 1rem;
+    position: relative;
+}
+.btn-promo-close {
+    position: absolute;
+    display: inline-block;
+    cursor: pointer;
+    color: #ee4d2d;
+    top: 2rem;
+    right: 2rem;
+    background-color: transparent;
+    padding: .75rem;
+    border: 3px solid #ee4d2d;
+
+}
+.sub-label {
+    color: #ee4d2d;
+}
+.price-after-disc-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding:2rem 0;
+    margin-top: 2rem;
+    border-top: 3px dashed #ee4d2d;
+}
+
+.price-before-val,.price-after-val {
+    font-weight: 700;
+    font-size: 4rem;
+    color: #ee4d2d;
+}
+.btn-save-disc {
+    align-self: flex-end;
+    cursor: pointer;
+    color: white;
+    display: inline-block;
+    padding: 1rem;
+    background-color: #ee4d2d;
 }

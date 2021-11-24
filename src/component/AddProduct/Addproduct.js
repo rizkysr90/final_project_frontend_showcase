@@ -27,6 +27,7 @@ const AddProduct = () => {
     const [insertCategories,{loading : loadingInsertCategories, error : loadingErrorCategories, data : dataInsertCategories}] = useMutation(INSERT_CATEGORIES)
     const [isModalCategoriesOpen,setIsModalCategoriesOpen] = useState(false);
     const [isPopupInsertCategoriesOpen,setIsPopupInsertCategoriesOpen] = useState(false);
+    const [promo,setPromo] = useState(false);
 
     const addCategories = (admindata) => {
         insertCategories({
@@ -53,7 +54,7 @@ const AddProduct = () => {
                 <div className = "addProduct-centre">
                     <form>
                         <label htmlFor = "name">
-                            <span className = "input-title block-label">Nama Product</span>
+                            <span className = "input-title block-label">Nama Produk</span>
                             <input type = "text" name = "name" id = "name" className = "input-large" ></input>
                         </label>
                         <label htmlFor = "size">
@@ -72,7 +73,7 @@ const AddProduct = () => {
                             <input type = "number" name = "price" id = "price" className = "input-small price"></input>
                         </label>
                         <label htmlFor = "desc">
-                            <span className = "input-title block-label get-margin-top">Description</span>
+                            <span className = "input-title block-label get-margin-top">Deskripsi</span>
                             <textarea name = "desc" id = "desc"></textarea>
                         </label>
                         <label htmlFor = "urlImg">
@@ -81,14 +82,14 @@ const AddProduct = () => {
                         </label>
                         <label htmlFor = "category">
                             <span className = "input-title block-label get-margin-top">Kategori</span>
-                            <select name = "category" id = "category" class = "select-category">
-                                <option value="" class = "option-category">Tidak ada kategori</option>
+                            <select name = "category" id = "category" className = "select-category">
+                                <option value="" className = "option-category">Tidak ada kategori</option>
 
                                 {
                                     loadingCategories? "":
                                     data.categories.map( (elm) => {
                                         return(
-                                            <option key = {elm.id} value = {elm.id} class = "option-category">{elm.title}</option>
+                                            <option key = {elm.id} value = {elm.id} className = "option-category">{elm.title}</option>
                                         )
                                     })
                                 }
@@ -98,7 +99,28 @@ const AddProduct = () => {
                         
                         <label>
                             <span className = "input-title block-label get-margin-top">Promo</span>
-                            <a href = "#" className = "promo-box">(+) Tambah Promo</a>
+                            {promo ? 
+                                <div className = "promo-box-container">
+                                    <div className = "btn-promo-close" onClick = {() => setPromo(false)}>Hapus Promo</div>
+                                    <label htmlFor = "promo">
+                                        <span className = "input-title get-margin-top block-label sub-label">Masukkan persentase diskon per produk (%)</span>
+                                        <input type = "number" name = "promo" id = "promo" className = "input-small"></input>
+                                        <span className = "input-suffix-size">%</span>
+                                    </label>
+                                    <div className = "price-after-disc-container">
+                                        <div className = "price-before-container">
+                                            <h4 className = "price-disc-info">Harga Akhir</h4>
+                                            <p className = "price-before-val">Rp60.000</p>
+
+                                        </div>
+                                    {/* <div className = "btn-save-disc">Tambahkan Diskon</div> */}
+
+                                    </div>
+                                </div>
+                            :
+                            <div type = "button" className = "btn-promo-box" onClick = {() => setPromo(true)}>(+) Tambah Promo</div>
+                        }
+
                         </label>
                         <div className = "btn-add-container">
                             <button className = "btn-addProduct btn-addProduct-back">Kembali</button>
@@ -118,34 +140,7 @@ const AddProduct = () => {
                      statusData = {dataInsertCategories}
                      close = {setIsPopupInsertCategoriesOpen}
                 />:""}
-                {/* {loadingInsertCategories ? <PopupInsertCategory
-                     statusLoading = {loadingInsertCategories}
-                     statusError = {loadingErrorCategories}
-                     statusData = {dataInsertCategories}
-                     closeModal = {setIsPopupInsertCategoriesOpen}
-                /> : <p>Finish</p>} */}
-                {/* {isPopupInsertCategoriesOpen ? <PopupInsertCategories
-                     loading = {loadingInsertCategories}
-                     error = {loadingErrorCategories}
-                     data = {dataInsertCategories}
-                     close = {setIsPopupInsertCategoriesOpen}
-                /> : ""} */}
-                {/* {loadingInsertCategories ? <p>Loading geng</p> : ""} */}
-                {/* {loadingInsertCategories ?  () => setIsPopupInsertCategoriesOpen((prev) => !prev): ""} */}
-                        {/* {/* {loadingInsertCategories ? handlePopupInsertCategoriesOpen : ""} */}
-                {/* {
-                    loadingInsertCategories ? 
-                    <PopupInsertCategories 
-                    loading = {loadingInsertCategories}
-                    error = {loadingErrorCategories}
-                    data = {dataInsertCategories}
-                    /> : 
-                    <PopupInsertCategories 
-                    loading = {loadingInsertCategories}
-                    error = {loadingErrorCategories}
-                    data = {dataInsertCategories}
-                    />
-                } */}
+                
                
             </div>
         </>
