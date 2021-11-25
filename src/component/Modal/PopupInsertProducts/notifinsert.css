@@ -1,0 +1,35 @@
+.p-insert-product-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 55;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    /* background-color: yellow; */
+}
+.p-insert-product-container {
+    color: white;
+    position: fixed;
+    top: 5%;
+    right: 0;
+    width: 30%;
+    display: inline-block;
+    padding: 2rem;
+    background-color: rgb(238,77,45);
+    border-radius: 5px;
+}
+.p-insert-product-status-val {
+    text-transform: uppercase;
+}
+.p-insert-product-title {
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+.p-insert-product-status {
+    margin-bottom: .45rem;
+}
+.p-insert-product-added {
+    font-weight: 700;
+    text-transform: uppercase;
+}

@@ -155,3 +155,10 @@ button{
     padding: 1rem;
     background-color: #ee4d2d;
 }
+
+/* Error Message */
+.add-product-errorValidation {
+    color: red;
+    font-weight: 700;
+    margin-top: 1rem;
+}
