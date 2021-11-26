@@ -1,0 +1,35 @@
+.p-delete-product-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 55;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    /* background-color: yellow; */
+}
+.p-delete-product-container {
+    color: white;
+    position: fixed;
+    top: 5%;
+    right: 0;
+    width: 30%;
+    display: inline-block;
+    padding: 2rem;
+    background-color: rgb(238,77,45);
+    border-radius: 5px;
+}
+.p-delete-product-status-val {
+    text-transform: uppercase;
+}
+.p-delete-product-title {
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+.p-delete-product-status {
+    margin-bottom: .45rem;
+}
+.p-delete-product-added {
+    font-weight: 700;
+    text-transform: uppercase;
+}

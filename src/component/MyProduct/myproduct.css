@@ -1,11 +1,49 @@
 .myProduct-container {
     padding-top: 5rem;
     width: 100%;
+    padding-left:20%
 }
 
 .myProduct-centre {
     width: 90%;
-    height: 100%;
+    height: 100vh;
     margin: 0 auto;
     background-color: white;
+    padding-top: 4rem;
+}
+.myProduct-search-by-name {
+    display: flex;
+    justify-content: center;
+}
+
+.myProduct-search input {
+    background-color: #F5F5F5;
+    border: 1px solid #BABABA;
+    padding: 1rem 1.2rem;
+    font-size: 1.6rem;
+    font-family: "Roboto",sans-serif;
+}
+
+.input-medium {
+    width: 100%;
+}
+
+.myProduct-search-by-name-input {
+    width: 50%;
+    display: flex;
+    
+
+}
+.myProduct-search-by-name-input-suffix {
+    padding: 1rem 1.5rem;
+    background-color: #ee4d2d;
+    cursor: pointer;
+    color: white;
+}
+.admin-show-all-product-container {
+    width: 100%;
+    margin-top: 2rem;
+    height: 100%;
+    padding: 1rem 2rem;
+  
 }

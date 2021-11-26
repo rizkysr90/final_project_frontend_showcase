@@ -257,7 +257,7 @@ const AddProduct = () => {
                         <label htmlFor = "category">
                             <span className = "input-title block-label get-margin-top">Kategori</span>
                             <select name = "category" id = "category" className = "select-category" onChange = {handleChange}>
-                                <option value="" className = "option-category" selected>Tidak ada kategori</option>
+                                <option value="" className = "option-category">Tidak ada kategori</option>
 
                                 {
                                     loadingCategories? "":
