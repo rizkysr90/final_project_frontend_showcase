@@ -1,9 +1,12 @@
 import React  from "react";
 import "./cardproduct.css";
+import {useNavigate} from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 
 const CardProduct = (props) => {
 
+    let navigate = useNavigate();
     const openModal = () => {
         props.isModalDeleteOpen((prev) => !prev)
     }
@@ -16,6 +19,9 @@ const CardProduct = (props) => {
             stok : data.stok,
         })
         callback()
+    }
+    const handleEditbtn = (productId) => {
+        navigate(`/editproduct/${productId}`);
     }
     return (
             <div className = "admin-show-all-product">
@@ -39,7 +45,7 @@ const CardProduct = (props) => {
                                     <p className = "cart-info-available">Stok <b className = "cart-info-stok">{productData.stok}</b></p>
                                 </div>
                                 <div className = "cart-btn-container ">
-                                    <div className = "cart-btn-edit btn-cart">Edit</div>
+                                    <div  onClick = {() => handleEditbtn(productData.id)} className = "cart-btn-edit btn-cart">Edit</div>
                                     <div className = "cart-btn-vertical-line"></div>
                                     <div className = "cart-btn-delete btn-cart" onClick = {() => handleDelete(openModal,productData) }>Hapus</div>
                                 </div>

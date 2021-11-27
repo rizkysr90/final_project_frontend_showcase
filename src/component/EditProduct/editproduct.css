@@ -1,0 +1,15 @@
+.edit-product-overlay {
+    position: absolute;
+    width: 100%;
+    padding-top: 10rem;
+    min-height: 100vh;
+    background-color: white;
+}
+
+.btn-show {
+    color: white;
+    cursor: pointer;
+    display: inline-block;
+    background-color: #ee4d2d;
+    padding: 1.2rem 1.5rem;
+}

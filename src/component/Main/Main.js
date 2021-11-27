@@ -4,6 +4,7 @@ import Sidebar from '../Sidebar/Sidebar'
 import AddProduct from '../AddProduct/Addproduct';
 import MyProduct from '../MyProduct/MyProduct';
 import { Routes, Route} from "react-router-dom";
+import EditProduct from '../EditProduct/EditProduct';
 const Main = () => {
 
     return(
@@ -12,9 +13,9 @@ const Main = () => {
                 <Sidebar />
                 <Routes>
                     <Route path = "/" element = {<MyProduct/>}></Route>
-                </Routes>
-                <Routes>
                     <Route path = "/addproduct" element = {<AddProduct/>}></Route>
+                    <Route path = "/editproduct/:productId" element = {<EditProduct/>}></Route>
+
                 </Routes>
 
             </div>

@@ -3,7 +3,7 @@ import "./addproduct.css"
 import ModalCategories from "../Modal/ModalAddCategories/ModalCategories";
 import PopupInsertCategory from "../Modal/PopupInsertCategory/PopupInsertCategory";
 import PopupInsertProduct from "../Modal/PopupInsertProducts/PopupInsertProduct";
-import { useQuery,gql, useSubscription, useMutation } from "@apollo/client";
+import { gql, useSubscription, useMutation } from "@apollo/client";
 const INSERT_PRODUCT = gql `
 mutation MyMutation(
     $name: String!, 
@@ -260,7 +260,7 @@ const AddProduct = () => {
                                 <option value="" className = "option-category">Tidak ada kategori</option>
 
                                 {
-                                    loadingCategories? "":
+                                    loadingCategories? "": errorCategories ?"" :
                                     data.categories.map( (elm) => {
                                         return(
                                             <option key = {elm.id} value = {elm.id} className = "option-category">{elm.title}</option>
