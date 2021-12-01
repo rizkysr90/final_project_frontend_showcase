@@ -2,7 +2,7 @@ import React from 'react'
 import './editproduct.css'
 import { useParams } from "react-router-dom";
 import { gql, useQuery} from "@apollo/client";
-import { useState,useEffect } from 'react/cjs/react.development';
+// import { useState } from 'react/cjs/react.development';
 import FormEdit from '../FormEdit/FormEdit';
 
 const GET_PRODUCT = gql`
@@ -26,7 +26,7 @@ query MyQuery($id: Int!) {
 const EditProduct = () => {
     
     let params = useParams();
-    const [product,setProduct] = useState({})
+    // const [product,setProduct] = useState({})
     
     const {loading : loadingData, error :errorData,data : q} = useQuery(GET_PRODUCT,{
         variables :{
@@ -39,7 +39,9 @@ const EditProduct = () => {
         <>
             
             <div className = "edit-product-overlay">
-                {loadingData ? <p>Memuat data </p> : errorData ? <p>Error</p> :
+                {loadingData ? <p>Memuat data </p> : errorData ? <p>Error</p> : q.products_by_pk === null ? <div className = "error-handle">
+                        <p>Data tidak ditemukan</p>
+                    </div>:
                     <FormEdit
                         data = {q.products_by_pk}
                     />

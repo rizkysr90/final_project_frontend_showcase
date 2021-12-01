@@ -15,7 +15,12 @@ const Main = () => {
                     <Route path = "/" element = {<MyProduct/>}></Route>
                     <Route path = "/addproduct" element = {<AddProduct/>}></Route>
                     <Route path = "/editproduct/:productId" element = {<EditProduct/>}></Route>
-
+                    <Route path = "*" element = {<div className = "error-handle">
+                        <p>Halaman tidak ditemukan</p>
+                    </div>
+                        
+                        }></Route>
+                    
                 </Routes>
 
             </div>

@@ -92,6 +92,10 @@ const FormEdit = (props) => {
             setProductData({...productData,[e.target.name] : e.target.value})
         }
     }
+    const handleClosePromo = () => {
+        setProductData({...productData,is_promo : false,promo : 0})
+        setErrorMessage({...errorMessage,promo:""})
+    }
     const handleValidation = (e) => {
         const name = e.target.name
         const value = e.target.value
@@ -250,7 +254,7 @@ const FormEdit = (props) => {
                     {productData.is_promo ? 
                         <div className = "promo-box-container">
                             <div className = "btn-promo-close" onClick = {() => 
-                                setProductData({...productData,is_promo : false,promo : 0})}>Hapus Promo</div>
+                               handleClosePromo()}>Hapus Promo</div>
                             <label htmlFor = "promo">
                                 <span className = "input-title get-margin-top block-label sub-label">Masukkan persentase diskon per produk (%)</span>
                                 <input type = "number" name = "promo" id = "promo" className = "input-small" onChange = {handleChange} onBlur = {handleValidation} value = {productData.discount}></input>

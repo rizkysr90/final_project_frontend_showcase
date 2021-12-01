@@ -7,8 +7,8 @@ import ModalDelete from "../Modal/ModalDeleteProduct/ModalDelete";
 
 
 const SUBS_PRODUCTS = gql`
-subscription MySubscription($_name: String_comparison_exp = {}) {
-    products(where: {name: $_name}) {
+subscription MySubscription($_name: String!) {
+    products(where: {name:{_ilike: $_name}}) {
       id
       discount
       description
@@ -31,7 +31,7 @@ mutation MyMutation($id: Int!) {
   
 `;
 const MyProduct = () => {
-    const [subsState,setSubsState] = useState({});
+    const [subsState,setSubsState] = useState("");
     const [getProduct,setGetProduct] = useState({
         id : "",
         name : "",
@@ -43,7 +43,7 @@ const MyProduct = () => {
     const [isModalDeleteProductOpen,setIsModalDeleteProductOpen] = useState(false);
     const {loading : loadingProduct,error : errorProduct,data : dataProduct} = useSubscription(SUBS_PRODUCTS,
         {
-            variables:{_name:subsState},
+            variables:{_name:`%${subsState}%`},
        
         });
         
@@ -55,6 +55,11 @@ const MyProduct = () => {
             }
         })
     }
+    const [userInput,setUserInput] = useState("");
+
+    const handleChange = (e) => {
+        setUserInput(e.target.value)
+    }
     return(
         <>
             <div className = "myProduct-container">
@@ -62,8 +67,8 @@ const MyProduct = () => {
                     <form className = "myProduct-search">
                         <div className = "myProduct-search-by-name">
                             <label className = "myProduct-search-by-name-input">
-                                <input type = "text" name = "name" id = "name" className = "input-medium" placeholder = "Cari nama produk"></input>
-                                <span className = "myProduct-search-by-name-input-suffix">Cari</span>
+                                <input type = "text" name = "name" id = "name" className = "input-medium" placeholder = "Cari nama produk" value = {userInput} onChange = {(e) => handleChange(e)}></input>
+                                <span className = "myProduct-search-by-name-input-suffix" onClick = {() => setSubsState(userInput)}>Cari</span>
                             </label>
                            
                         </div>

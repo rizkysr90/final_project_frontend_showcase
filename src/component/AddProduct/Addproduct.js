@@ -71,6 +71,10 @@ const AddProduct = () => {
             promo : ""
         }
     )
+    const handleClosePromo = () => {
+        setProductData({...productData,is_promo : false,promo : 0})
+        setErrorMessage({...errorMessage,promo:""})
+    }
     const calculatingDiscount = Number(productData.price) - (Number(productData.price) * (Number(productData.promo / 100)))
     const refProductDataDescription = useRef(null)
     const refProductDataImg = useRef(null)
@@ -275,8 +279,9 @@ const AddProduct = () => {
                             <span className = "input-title block-label get-margin-top">Promo</span>
                             {productData.is_promo ? 
                                 <div className = "promo-box-container">
-                                    <div className = "btn-promo-close" onClick = {() => 
-                                        setProductData({...productData,is_promo : false,promo : 0})}>Hapus Promo</div>
+                                    <div className = "btn-promo-close" onClick = {() => {
+                                        handleClosePromo()
+                                    }}>Hapus Promo</div>
                                     <label htmlFor = "promo">
                                         <span className = "input-title get-margin-top block-label sub-label">Masukkan persentase diskon per produk (%)</span>
                                         <input type = "number" name = "promo" id = "promo" className = "input-small" onChange = {handleChange} onBlur = {handleValidation} value = {productData.promo}></input>
